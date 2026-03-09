@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from .database import engine, Base
+from . import models
 
 app = FastAPI(
     title="Coding Contest Proctor API",
