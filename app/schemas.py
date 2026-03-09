@@ -56,3 +56,20 @@ class ProblemResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class TestCaseCreate(BaseModel):
+    problem_id: int
+    input_data: str
+    expected_output: str
+    is_visible: int
+
+
+class TestCaseResponse(BaseModel):
+    id: int
+    problem_id: int
+    input_data: str
+    expected_output: str
+    is_visible: int
+
+    class Config:
+        from_attributes = True

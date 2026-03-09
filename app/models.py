@@ -27,3 +27,12 @@ class Problem(Base):
     title = Column(String, index=True)
     description = Column(String)
     difficulty = Column(String)
+
+class TestCase(Base):
+    __tablename__ = "testcases"
+
+    id = Column(Integer, primary_key=True, index=True)
+    problem_id = Column(Integer, index=True)
+    input_data = Column(String)
+    expected_output = Column(String)
+    is_visible = Column(Integer, default=0)
