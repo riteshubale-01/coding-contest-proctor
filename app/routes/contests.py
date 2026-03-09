@@ -30,3 +30,8 @@ def create_contest(contest: schemas.ContestCreate, db: Session = Depends(get_db)
     db.refresh(new_contest)
 
     return new_contest
+
+@router.get("/contests", response_model=list[schemas.ContestResponse])
+def get_contests(db: Session = Depends(get_db)):
+    contests = db.query(models.Contest).all()
+    return contests
