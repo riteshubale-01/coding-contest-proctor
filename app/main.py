@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from .database import engine, Base
 from . import models
-from .routes import users
+from .routes import users, contests
 
 app = FastAPI(
     title="Coding Contest Proctor API",
@@ -12,6 +12,7 @@ app = FastAPI(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(users.router)
+app.include_router(contests.router)
 
 @app.get("/")
 def root():
