@@ -39,3 +39,20 @@ class ContestResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class ProblemCreate(BaseModel):
+    contest_id: int
+    title: str
+    description: str
+    difficulty: str
+
+
+class ProblemResponse(BaseModel):
+    id: int
+    contest_id: int
+    title: str
+    description: str
+    difficulty: str
+
+    class Config:
+        from_attributes = True
